@@ -8,7 +8,7 @@ import urllib.request
 from pathlib import Path
 
 
-def get_input() -> (Path, str, str, str, str, str, str):
+def get_input():
     path = Path(input())
     partial_url = input()
     symbol = input()
@@ -72,7 +72,7 @@ def get_result(url: str) -> dict:
             response.close()
 
 
-def narrow_data(data: dict, considered_dates: list) -> [dict]:
+def narrow_data(data: dict, considered_dates: list) -> list[dict]:
     """
     Returns a list of dictionaries in which each dictionary
     contians the keys open, high, low, close, and volume whos
@@ -112,7 +112,7 @@ def narrow_data(data: dict, considered_dates: list) -> [dict]:
             return data_wanted
 
 
-def desired_dates(start_date: str, end_date: str) -> [str]:
+def desired_dates(start_date: str, end_date: str) -> list[str]:
     """
     Returns a list of all the dates in-between the start date
     and the end date in form YYYY-MM-DD. List is inclucsive.

@@ -3,7 +3,7 @@
 
 
 class TrueRangeSignal:
-    def __init__(self, true_ranges: [float], lt_gt_buy: str, buy_percentage: float, lt_gt_sell: str,
+    def __init__(self, true_ranges: list[float], lt_gt_buy: str, buy_percentage: float, lt_gt_sell: str,
                  sell_percentage: float):
         self._true_ranges = true_ranges
         self._lt_gt_buy = lt_gt_buy
@@ -11,7 +11,7 @@ class TrueRangeSignal:
         self._lt_gt_sell = lt_gt_sell
         self._sell_percentage = sell_percentage
 
-    def buy_or_sell(self) -> [dict]:
+    def buy_or_sell(self) -> list[dict]:
         buy_or_sell = [{'BUY': False, 'SELL': False}]
 
         for percentage in self._true_ranges[1:]:
@@ -45,13 +45,13 @@ class TrueRangeSignal:
 
 
 class SMASignal:
-    def __init__(self, average_closing_prices: [float], data_wanted: [dict], num_days: int, field: str):
+    def __init__(self, average_closing_prices: list[float], data_wanted: list[dict], num_days: int, field: str):
         self._averages = average_closing_prices
         self._data = data_wanted
         self._num_days = num_days
         self._field = field
 
-    def buy_or_sell(self) -> [dict]:
+    def buy_or_sell(self) -> list[dict]:
         buy_or_sell = []
 
         if len(self._data) < self._num_days:
@@ -85,12 +85,12 @@ class SMASignal:
 
 
 class DISignal:
-    def __init__(self, directional_indicators: [int], buy_threshold: int, sell_threshold: int):
+    def __init__(self, directional_indicators: list[int], buy_threshold: int, sell_threshold: int):
         self._indicators = directional_indicators
         self._buy = buy_threshold
         self._sell = sell_threshold
 
-    def buy_or_sell(self) -> [dict]:
+    def buy_or_sell(self) -> list[dict]:
         buy_or_sell = [{'BUY': False, 'SELL': False}]
 
         for index in range(1, len(self._indicators)):

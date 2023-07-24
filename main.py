@@ -4,6 +4,7 @@
 import alpha_vantage
 import indicators
 import signal_strats
+from typing import Union
 
 
 def _run_user_interface() -> None:
@@ -31,7 +32,7 @@ def _run_user_interface() -> None:
             _display_result(wanted_data, indicator_data, buy_or_sell)
 
 
-def _analyze_data(data: [dict], indicator: str, strategy: str) -> ([dict], list):
+def _analyze_data(data: list[dict], indicator: str, strategy: str) -> tuple[list[dict], list]:
     if indicator.startswith('TR'):
         buy, sell = strategy.split()
         true_range_indicator = indicators.TrueRange(data)
@@ -48,7 +49,7 @@ def _analyze_data(data: [dict], indicator: str, strategy: str) -> ([dict], list)
         return signal.buy_or_sell(), directional_indicator_values
 
 
-def _sma_indicators(data: [dict], indicator: str, strategy: str) -> [float]:
+def _sma_indicators(data: list[dict], indicator: str, strategy: str) -> list[float]:
     days = int(strategy)
 
     if indicator.startswith('MP'):
@@ -64,7 +65,7 @@ def _sma_indicators(data: [dict], indicator: str, strategy: str) -> [float]:
     return signal, averages
 
 
-def _directional_indicators(data: [dict], indicator: str, strategy: str) -> ([float], int, int):
+def _directional_indicators(data: list[dict], indicator: str, strategy: str) -> tuple[list[float], int, int]:
     day, buy_threshold, sell_threshold = strategy.split()
 
     if indicator.startswith('DP'):
@@ -78,7 +79,7 @@ def _directional_indicators(data: [dict], indicator: str, strategy: str) -> ([fl
     return signal, directional_indicator_values
 
 
-def _display_result(wanted_data: [dict], indicator_data: [float or int], buy_or_sell: [dict]) -> None:
+def _display_result(wanted_data: list[dict], indicator_data: Union[float, int], buy_or_sell: list[dict]) -> None:
     print('Date\tOpen\tHigh\tLow\tClose\tVolume\tIndicator\tBuy?\tSell?')
 
     for index in range(len(wanted_data)):

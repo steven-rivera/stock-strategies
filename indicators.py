@@ -3,10 +3,10 @@
 
 
 class TrueRange:
-    def __init__(self, data_wanted: [dict]):
+    def __init__(self, data_wanted: list[dict]):
         self._data = data_wanted
 
-    def calculate(self) -> [float]:
+    def calculate(self) -> list[float]:
         true_range_percentages = ['EMPTY']
         for index in range(1, len(self._data)):
             current_day = self._data[index]
@@ -24,11 +24,11 @@ class TrueRange:
 
 
 class SMAClosing:
-    def __init__(self, data_wanted: [dict], num_days: int):
+    def __init__(self, data_wanted: list[dict], num_days: int):
         self._data = data_wanted
         self._num_days = num_days
 
-    def calculate(self) -> [float]:
+    def calculate(self) -> list[float]:
         average_closing_prices = []
 
         if len(self._data) < self._num_days:
@@ -50,11 +50,11 @@ class SMAClosing:
 
 
 class SMAVolume:
-    def __init__(self, data_wanted: [dict], num_days: int):
+    def __init__(self, data_wanted: list[dict], num_days: int):
         self._data = data_wanted
         self._num_days = num_days
 
-    def calculate(self) -> [float]:
+    def calculate(self) -> list[float]:
         average_volumes = []
 
         if len(self._data) < self._num_days:
@@ -76,11 +76,11 @@ class SMAVolume:
 
 
 class DIClosing:
-    def __init__(self, data_wanted: [dict], num_days: int):
+    def __init__(self, data_wanted: list[dict], num_days: int):
         self._data = data_wanted
         self._num_days = num_days
 
-    def calculate(self) -> [int]:
+    def calculate(self) -> list[int]:
         directional_indicators = [0]
 
         for index in range(1, len(self._data)):
@@ -97,11 +97,11 @@ class DIClosing:
 
 
 class DIVolume:
-    def __init__(self, data_wanted: [dict], num_days: int):
+    def __init__(self, data_wanted: list[dict], num_days: int):
         self._data = data_wanted
         self._num_days = num_days
 
-    def calculate(self) -> [int]:
+    def calculate(self) -> list[int]:
         directional_indicators = [0]
 
         for index in range(1, len(self._data)):
