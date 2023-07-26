@@ -5,7 +5,7 @@ data to calculate some metrics summarizing those prices, and ultimately report o
 times to buy or sell the stock, based on one of a few automated buying-and-selling strategies. 
 
 <div align="center">
-    <img src="images/stock-strategies.png" width=50%>
+    <img src="images/stock-strategies.png" width=75%>
 </div>
 
 
