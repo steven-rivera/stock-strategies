@@ -1,0 +1,23 @@
+C:\Examples\AlphaVantage\apikey.txt
+https://www.alphavantage.co
+AAPL
+2023-02-01
+2023-03-31
+MP 5
+
+
+
+C:\Examples\AlphaVantage\apikey.txt
+https://www.alphavantage.co
+MSFT
+2020-10-01
+2020-11-31
+TR <1.5 >0.5
+
+
+C:\Examples\AlphaVantage\apikey.txt
+https://www.alphavantage.co
+BOO
+2018-10-01
+2018-10-31
+DP 10 +4 -2
