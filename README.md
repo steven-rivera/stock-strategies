@@ -4,6 +4,10 @@ This program utilizes the Alpha Vantage API to obtain past stock prices and uses
 data to calculate some metrics summarizing those prices, and ultimately report on potentially opportune 
 times to buy or sell the stock, based on one of a few automated buying-and-selling strategies. 
 
+<div align="center">
+    <img src="images/stock-strategies.png" width=50%>
+</div>
+
 
 ## Indicators
 
@@ -52,4 +56,3 @@ obtained, place the key in a file on a single line
       indicator, then buy when it crosses above +5 and sell when it crosses below -3.
     - **DV** means the same thing as **DP**, except that we use the volumes instead of the closing prices. For example, **DV 10 +5 -3** means that we should determine the 10-day directional indicator 
       of volumes, then buy and/or sell when the volume crosses above and/or below it.
-
